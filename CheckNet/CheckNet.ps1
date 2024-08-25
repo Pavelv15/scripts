@@ -1,4 +1,4 @@
-Start-Transcript -path ".\logs.txt"
+Start-Transcript -path "logs.txt"
 [string]$mask = ipconfig
 #Указывается первый и второй октет локальной сети 
 $chek_mask= $mask.Contains('192.168.')
