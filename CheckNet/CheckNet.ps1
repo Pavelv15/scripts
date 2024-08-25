@@ -1,12 +1,16 @@
+<<<<<<< HEAD
 Start-Transcript -path ".\logs.txt"
+=======
+Start-Transcript -path "logs.txt"
+>>>>>>> d6d2673852c4fd61862550038d11de6790d0a990
 [string]$mask = ipconfig
-
+#РЈРєР°Р·С‹РІР°РµС‚СЃСЏ РїРµСЂРІС‹Р№ Рё РІС‚РѕСЂРѕР№ РѕРєС‚РµС‚ Р»РѕРєР°Р»СЊРЅРѕР№ СЃРµС‚Рё 
 $chek_mask= $mask.Contains('192.168.')
 
 if( $chek_mask -eq $True) {
-Write-Host "Роутер виден"
+Write-Host "Р РѕСѓС‚РµСЂ РІРёРґРµРЅ"
 tracert 8.8.8.8
-$what = Read-Host "Запустить автоматическое восстановление доступа интернет(Y-да;N-нет)"
+$what = Read-Host "Р—Р°РїСѓСЃС‚РёС‚СЊ Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРѕРµ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёРµ РґРѕСЃС‚СѓРїР° РёРЅС‚РµСЂРЅРµС‚(Y-РґР°;N-РЅРµС‚))"
 if($what -eq "Y") {
 netsh winsock reset
 netsh int ip reset
@@ -16,7 +20,7 @@ ipconfig /renew
 ipconfig /flushdns
 ipconfig /registerdns
 
-Write-Host "Перезагрузка компьютера через 10 секунд"
+Write-Host "РџРµСЂРµР·Р°РіСЂСѓР·РєР° РєРѕРјРїСЊСЋС‚РµСЂР° С‡РµСЂРµР· 10 СЃРµРєСѓРЅРґ"
 Start-Sleep -Seconds 10
 shutdown /r /t 0 
 }
@@ -26,7 +30,7 @@ pause
 
 }
 else {
-Write-Host "Роутер невиден"
+Write-Host "Р РѕСѓС‚РµСЂ РЅРµРІРёРґРµРЅ"
 Get-NetIPConfiguration -All -Detailed
 pause
 }

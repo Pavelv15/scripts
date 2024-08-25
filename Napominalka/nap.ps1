@@ -5,12 +5,12 @@ function window_napominalka
 {
 $date_today=(Get-Date).Day
 if ($date_today -ge $date) {
-Write-Host "Даты совпадают"
+Write-Host "Р”Р°С‚С‹ СЃРѕРІРїР°РґР°СЋС‚"
 Add-Type -Assembly System.Windows.Forms
 Add-type -Assembly 'System.IO.Compression'
 Add-type -Assembly 'System.IO.Compression.FileSystem'
 $window_form= New-Object System.Windows.Forms.Form
-$window_form.Text = "Ежемесячный сбор данных"
+$window_form.Text = "Р•Р¶РµРјРµСЃСЏС‡РЅС‹Р№ СЃР±РѕСЂ РґР°РЅРЅС‹С…"
 $window_form.Width = 550 
 $window_form.Height = 400 
 #$window_form.BackColor = "#BDB76B"
@@ -27,15 +27,15 @@ $window_form.Controls.Add($FormLablel)
 $Button = New-Object System.Windows.Forms.Button
 $Button.Location =New-Object System.Drawing.Point(10,200)
 $Button.Size =New-Object System.Drawing.Size(150,30)
-$Button.Text = "Перейти на сайт"
+$Button.Text = "РџРµСЂРµР№С‚Рё РЅР° СЃР°Р№С‚"
 $window_form.Controls.Add($Button)
 
 
 $Button.Add_Click( 
 {
-Start-Process -FilePath Chrome -ArgumentList "https://lkk.mosobleirc.ru/#/"
-Remove-Item O:\Scripts\Napominalka\proverka.txt # удаляет проверочный файл 
-New-Item O:\Scripts\Napominalka\proverka.txt #  создаёт новый проверочный файл с текущим числом 
+Start-Process -FilePath Chrome -ArgumentList "https://lkk.mosobleirc.ru/#/" # РЎР°Р№С‚ РіРґРµ РІРЅРѕСЃСЏС‚СЃСЏ РїРѕРєР°Р·Р°С‚РµР»Рё СЃС‡С‘С‚С‡РёРєР°
+Remove-Item .\proverka.txt # СѓРґР°Р»СЏРµС‚ РїСЂРѕРІРµСЂРѕС‡РЅС‹Р№ С„Р°Р№Р»
+New-Item .\proverka.txt #  СЃРѕР·РґР°С‘С‚ РЅРѕРІС‹Р№ РїСЂРѕРІРµСЂРѕС‡РЅС‹Р№ С„Р°Р№Р» СЃ С‚РµРєСѓС‰РёРј С‡РёСЃР»РѕРј 
 $window_form.Close()
 }
 )
@@ -46,15 +46,15 @@ $window_form.ShowDialog()
 }
 else 
 {
-echo "Ноy"
+echo "ГЌГ®y"
 }
 }
 
-$month_chek = (Get-ChildItem O:\Scripts\Napominalka\proverka.txt).CreationTime.Month
+$month_chek = (Get-ChildItem .\proverka.txt).CreationTime.Month
 $month_today = (get-date).Month
 if ($month_chek -eq $month_today)
 {
-echo "Ты уже предупреждён"
+echo "РўС‹ СѓР¶Рµ РїСЂРµРґСѓРїСЂРµР¶РґС‘РЅ"
 echo $month_chek
 }
 else {  
@@ -64,7 +64,7 @@ echo $month_chek
 if ($month_today -eq 12) 
 {
 $date=8
-echo "Декабрь"
+echo "Р”РµРєР°Р±СЂСЊ"
 window_napominalka
 
 
