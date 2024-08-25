@@ -1,0 +1,1 @@
+powershell -file CheckNet.ps1
