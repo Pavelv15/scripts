@@ -1,4 +1,4 @@
-Start-Transcript -path "C:\Users\pasho\OneDrive\Рабочий стол\ПроверкаСети\logs.txt"
+Start-Transcript -path ".\logs.txt"
 [string]$mask = ipconfig
 
 $chek_mask= $mask.Contains('192.168.')
