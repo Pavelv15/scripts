@@ -33,7 +33,7 @@ $window_form.Controls.Add($Button)
 
 $Button.Add_Click( 
 {
-Start-Process -FilePath Chrome -ArgumentList "https://lkk.mosobleirc.ru/#/" # Сайт где вносятся показатели счётчика
+Start-Process -FilePath Chrome -ArgumentList "https://lkk.mosobleirc.ru/#/" #  в  ArgumentList указывается ссылка на сайт где вносятся показатели счётчика. В  FilePath  указывается имя названия исполняемого фалйа, который запускает  браузер 
 Remove-Item .\proverka.txt # удаляет проверочный файл
 New-Item .\proverka.txt #  создаёт новый проверочный файл с текущим числом 
 $window_form.Close()
