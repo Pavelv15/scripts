@@ -7,11 +7,11 @@ write-host "Запустить попытку подключения через 
 $what=read-host " "
 if ( $what -eq "1") {
 write-host "Это может занять  несколько минут"
-$lol = (Get-NetIPConfiguration -InterfaceAlias Et*).IPv4DefaultGateway.NextHop
-[array]$lol = $lol.split(".")
-[string]$lol = $lol[0] + "." + $lol[1] + "." + $lol[2]
-write-host "Подсеть $lol"
-[array]$massive = 1..254 | %{ping -n 1 -w 10 $lol`.$_ > $null; if($LASTEXITCODE -eq 0) {"$lol.$_"}}
+$ips = (Get-NetIPConfiguration -InterfaceAlias Et*).IPv4DefaultGateway.NextHop
+[array]$ips = $ips.split(".")
+[string]$ips = $ips[0] + "." + $ips[1] + "." + $ips[2]
+write-host "Подсеть $ips"
+[array]$massive = 1..254 | %{ping -n 1 -w 10 $ips`.$_ > $null; if($LASTEXITCODE -eq 0) {"$ips.$_"}}
 for ($i=0; $i -lt $massive.Length;$i++) {
 $chek =(Test-NetConnection -Port 5555  $massive[$i]).tcpTestSucceeded
 if ( $chek -eq $True)
